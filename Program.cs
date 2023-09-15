@@ -4,16 +4,18 @@
     {
         static void Main(string[] args)
         {
-            int zahl = Addition(10, 5);
-            Console.WriteLine(zahl);
+            string firstName = GetTextInput("Gebe deinen Vornamen ein: ");
+            string lastName = GetTextInput("Geben deinen Nachnamen ein: ");
+
+            Console.WriteLine("Hallo {0} {1}", firstName, lastName);
+        }
+
+        static string GetTextInput(string message)
+        {
+            Console.Write(message);
+            string userInput = Console.ReadLine();
+            return userInput;
         }
         
-        //static weil nicht objekt basiert
-        //int definiert den rückgabewert datentyp
-        static int Addition(int num1, int num2)
-        {
-            int ergebnis = num1 + num2;
-            return ergebnis;
-        }
     }
 }
