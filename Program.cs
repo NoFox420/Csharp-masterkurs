@@ -4,15 +4,16 @@
     {
         static void Main(string[] args)
         {
-            SayHello("Jan", 30);
+            int zahl = Addition(10, 5);
+            Console.WriteLine(zahl);
         }
-        //Methoden werden in klassen definiert
-        //static methoden werden nicht auf objekten aufgerufen
-        //void definiert den rückgabewert
-
-        static void SayHello(string name, int age)
+        
+        //static weil nicht objekt basiert
+        //int definiert den rückgabewert datentyp
+        static int Addition(int num1, int num2)
         {
-            Console.WriteLine("Hallo {0}, du bist {1} Jahre alt!", name, age);
+            int ergebnis = num1 + num2;
+            return ergebnis;
         }
     }
 }
