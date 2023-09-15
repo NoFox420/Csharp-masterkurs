@@ -4,17 +4,17 @@
     {
         static void Main(string[] args)
         {
-            string firstName = GetTextInput("Gebe deinen Vornamen ein: ");
-            string lastName = GetTextInput("Geben deinen Nachnamen ein: ");
+            Console.Write("Gebe einen Radius ein: ");
+            double radius = Convert.ToDouble(Console.ReadLine());
 
-            Console.WriteLine("Hallo {0} {1}", firstName, lastName);
+            double result = GetCircleArea(radius);
+            Console.WriteLine("Die Fläche eines Kreises mit dem Radius {0}cm beträgt {1}cm²!", radius, result);
         }
 
-        static string GetTextInput(string message)
+        static double GetCircleArea(double radius)
         {
-            Console.Write(message);
-            string userInput = Console.ReadLine();
-            return userInput;
+
+            return Math.PI * radius*radius;
         }
         
     }
