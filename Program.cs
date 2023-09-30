@@ -4,39 +4,44 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Gib eine Jahreszahl ein: ");
+            Console.WriteLine("Gib gibt die erste Zahl ein: ");
 
-            int year = Convert.ToInt32(Console.ReadLine());
+            double num1 = Convert.ToDouble(Console.ReadLine());
 
-            CalculateLeapYear(year);
+            Console.WriteLine("Gib eine Rechenoperation ein: ");
 
-        }
+            string math = Console.ReadLine().ToLower();
 
-        static void CalculateLeapYear(int year)
-        {
-            bool lYear = false;
+            Console.WriteLine("Gib gibt die zweite Zahl ein: ");
 
-            if (year % 4 == 0) { lYear = true; }
-            else if (year % 100 == 0) { lYear = false; }
-            if (year % 400 == 0) { lYear = true;}
-            else
+            double num2 = Convert.ToDouble(Console.ReadLine());
+
+            switch (math)
             {
-                Console.WriteLine("Ungültige eingabe!");
-            }
+                case "addition": double sum1 = num1 + num2;
+                    Console.WriteLine(sum1);
+                    break;
 
-            switch (lYear) {
-                case
-                    true:
-                    
-                        Console.WriteLine("Schaltjahr");
-                        break;
-                    
-                case 
-                    false:  Console.WriteLine("Kein Schaltjahr");
-                        break;
-                    
+                case "subtraktion": double sum2 = num1 - num2;
+                    Console.WriteLine(sum2);
+                    break;
+
+                case "multiplikation": double sum3 = num1 * num2;
+                    Console.WriteLine(sum3);
+                    break;
+
+                case "division": double sum4 = num1 / num2;
+                    Console.WriteLine(sum4);
+                    break;
+
+                default: Console.WriteLine("falsche eingabe");
+                    break;
             }
         }
+
+        
+
+        
         
 
         
