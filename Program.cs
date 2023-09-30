@@ -4,64 +4,40 @@
     {
         static void Main(string[] args)
         {
-            //Logische operatoren:
-            //&& UND , || ODER , ! NICHT
+            Console.WriteLine("Gib eine Jahreszahl ein: ");
 
-            Console.WriteLine("Bitte gib dein Gewicht in KG an: ");
-            int weight = Convert.ToInt32(Console.ReadLine());
+            int year = Convert.ToInt32(Console.ReadLine());
 
-            Console.WriteLine("Bitte gib deine Größe in Metern an: ");
-            double height = Convert.ToDouble(Console.ReadLine());
-
-            double calcBMI = BMI(weight, height);
-
-            if (calcBMI <= 18.4)
-            {
-                Console.WriteLine("Du hast Untergewicht!");
-            }
-            else if (calcBMI >=18.5 && calcBMI <= 24.9)
-            {
-                Console.WriteLine("Du hast Normalgewicht!");
-            }
-            else if (calcBMI >=25 &&  calcBMI <= 29.9)
-            {
-                Console.WriteLine("Du hast Übergewicht!");
-            }
-            else if (calcBMI >= 30 && calcBMI <= 34.9)
-            {
-                Console.WriteLine("Du hast Adipositas Grad 1 !");
-            }
-            else if (calcBMI >= 35 && calcBMI <= 39.9)
-            {
-                Console.WriteLine("Du hast Adipositas Grad 2!");
-            }
-            else if (calcBMI >= 40)
-            {
-                Console.WriteLine("Du hast Adipositas Grad 3!");
-            }
+            CalculateLeapYear(year);
 
         }
 
-       static int userBodyweight (string getWeight) 
+        static void CalculateLeapYear(int year)
         {
-            int weight = Convert.ToInt32(Console.ReadLine());
-            return weight;
+            bool lYear = false;
+
+            if (year % 4 == 0) { lYear = true; }
+            else if (year % 100 == 0) { lYear = false; }
+            if (year % 400 == 0) { lYear = true;}
+            else
+            {
+                Console.WriteLine("Ungültige eingabe!");
+            }
+
+            switch (lYear) {
+                case
+                    true:
+                    
+                        Console.WriteLine("Schaltjahr");
+                        break;
+                    
+                case 
+                    false:  Console.WriteLine("Kein Schaltjahr");
+                        break;
+                    
+            }
         }
         
-        static double userHeight (string getHeight) 
-        {
-            double height = Convert.ToDouble(Console.ReadLine());
-            return height;
-        
-        }
-
-        static double BMI (int weight, double height) 
-        {
-            double bmi = weight / (height * height);
-            Console.WriteLine("Dein BMI ist: {0}", bmi);
-            return bmi;
-            
-        }
 
         
     }
