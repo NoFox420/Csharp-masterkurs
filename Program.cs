@@ -19,19 +19,19 @@
             switch (math)
             {
                 case "addition": double sum1 = num1 + num2;
-                    Console.WriteLine(sum1);
+                    Console.WriteLine("{0} + {1} = {2}", num1, num2, sum1);
                     break;
 
                 case "subtraktion": double sum2 = num1 - num2;
-                    Console.WriteLine(sum2);
+                    Console.WriteLine("{0} - {1} = {2}", num1, num2, sum2);
                     break;
 
                 case "multiplikation": double sum3 = num1 * num2;
-                    Console.WriteLine(sum3);
+                    Console.WriteLine("{0} * {1} = {2}", num1, num2, sum3);
                     break;
 
                 case "division": double sum4 = num1 / num2;
-                    Console.WriteLine(sum4);
+                    Console.WriteLine("{0} / {1} = {2}", num1, num2, sum4);
                     break;
 
                 default: Console.WriteLine("falsche eingabe");
