@@ -6,22 +6,34 @@
         {
             
 
-                Console.Write("Gib deine Zahl ein: ");
-                int num1 = Convert.ToInt32(Console.ReadLine());
+                Console.Write("Gib die Breite ein: ");
+                int width = Convert.ToInt32(Console.ReadLine());
 
-                Calculation(num1);
+                Console.Write("Gib die Höhe ein: ");
+                int height = Convert.ToInt32(Console.ReadLine());
 
-            
+                DrawRectangle(width, height);
+
+
+
         }
 
-        static void Calculation (int num1)
+        static void DrawRectangle(int width, int height)
         {
-            for (int i = 1; i <= 10;  i++)
+            for (int i = 0; i < height; i++)
             {
-                int result = num1 * i;
-                Console.WriteLine("{0} * {1} = {2}", num1, i, result);
+                
+                for (int j = 0; j < width; j++)
+                {
+                    Console.Write("#");
+                }
+
+                Console.WriteLine("#");
+
             }
         }
+
+
 
 
 
