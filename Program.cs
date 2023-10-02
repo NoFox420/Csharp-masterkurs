@@ -4,46 +4,30 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Gib gibt die erste Zahl ein: ");
+            Console.WriteLine("Gib deinen Anfangsparameter ein: ");
+            int num1 = Convert.ToInt32(Console.ReadLine());
 
-            double num1 = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("Gib deinen Endparameter ein: ");
+            int num2 = Convert.ToInt32(Console.ReadLine());
 
-            Console.WriteLine("Gib eine Rechenoperation ein: ");
+            AllEvenNumbers(num1, num2);
 
-            string math = Console.ReadLine().ToLower();
-
-            Console.WriteLine("Gib gibt die zweite Zahl ein: ");
-
-            double num2 = Convert.ToDouble(Console.ReadLine());
-
-            switch (math)
-            {
-                case "addition": double sum1 = num1 + num2;
-                    Console.WriteLine("{0} + {1} = {2}", num1, num2, sum1);
-                    break;
-
-                case "subtraktion": double sum2 = num1 - num2;
-                    Console.WriteLine("{0} - {1} = {2}", num1, num2, sum2);
-                    break;
-
-                case "multiplikation": double sum3 = num1 * num2;
-                    Console.WriteLine("{0} * {1} = {2}", num1, num2, sum3);
-                    break;
-
-                case "division": double sum4 = num1 / num2;
-                    Console.WriteLine("{0} / {1} = {2}", num1, num2, sum4);
-                    break;
-
-                default: Console.WriteLine("falsche eingabe");
-                    break;
-            }
         }
 
-        
+        static void AllEvenNumbers(int num1, int num2)
+        {
+            Console.WriteLine("Gerade Zahlen zwischen deinen Parametern:");
 
-        
-        
+            while (num1 <= num2) {
+                if (num1 % 2 == 0) Console.WriteLine(num1);
+                num1++;
+            }
 
-        
+        }
+
+
+
+
+
     }
 }
