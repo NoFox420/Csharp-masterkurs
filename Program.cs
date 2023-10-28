@@ -4,34 +4,23 @@
     {
         static void Main(string[] args)
         {
-            
 
-                Console.Write("Gib die Breite ein: ");
-                int width = Convert.ToInt32(Console.ReadLine());
-
-                Console.Write("Gib die Höhe ein: ");
-                int height = Convert.ToInt32(Console.ReadLine());
-
-                DrawRectangle(width, height);
-
-
-
-        }
-
-        static void DrawRectangle(int width, int height)
-        {
-            for (int i = 0; i < height; i++)
+            for (int i = 1; i <= 10; i++)
             {
-                
-                for (int j = 0; j < width; j++)
+
+                for (int j = 1;  j <= 10; j++)
                 {
-                    Console.Write("#");
+                    Console.Write("{0} * {1} = {2}  |", i, j, i * j);
+
                 }
-
-                Console.WriteLine("#");
-
+                
+                Console.WriteLine("");
+                
             }
+
         }
+
+        
 
 
 
