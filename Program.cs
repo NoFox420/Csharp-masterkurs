@@ -4,20 +4,20 @@
     {
         static void Main(string[] args)
         {
+            string text = "Hallo Welt ";
 
-            for (int i = 1; i <= 10; i++)
+            for (int i = 0; i < text.Length; i++)
             {
 
-                for (int j = 1;  j <= 10; j++)
+                if (i == 0)
                 {
-                    Console.Write("{0} * {1} = {2}  |", i, j, i * j);
-
+                    Console.WriteLine(text);
                 }
-                
-                Console.WriteLine("");
-                
+                else
+                {
+                    Console.WriteLine(text[i]);
+                }
             }
-
         }
 
         
