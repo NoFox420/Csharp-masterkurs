@@ -4,32 +4,28 @@
     {
         static void Main(string[] args)
         {
-            Console.Write("Gib ein Wort ein: ");
+            Console.Write("Gib ein Text ein: ");
             string text = Console.ReadLine();
 
-            if (isPalindrome(text))
-            {
-                Console.WriteLine(text + " ist ein Palindrom");
+            string newText = "";
 
-            }
-            else
+            foreach (char c in text)
             {
-                Console.WriteLine(text + " is kein Palindrom");
+                if(char.IsLetter(c))
+                {
+                    newText += c;
+                } else
+                {
+                    continue;
+                }
             }
+
+            Console.WriteLine(newText);
+
+
         }
 
-            static bool isPalindrome(string text) {
-                
-                string reversed = "";
-
-                for (int i = text.Length-1; i >= 0; i--)
-                {
-                    reversed += text[i];
-                
-                }
-
-                return reversed.ToLower() == text.ToLower();
-            }
+        
         
 
         
