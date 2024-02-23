@@ -4,21 +4,33 @@
     {
         static void Main(string[] args)
         {
-            string text = "Hallo Welt ";
+            Console.Write("Gib ein Wort ein: ");
+            string text = Console.ReadLine();
 
-            for (int i = 0; i < text.Length; i++)
+            if (isPalindrome(text))
             {
+                Console.WriteLine(text + " ist ein Palindrom");
 
-                if (i == 0)
-                {
-                    Console.WriteLine(text);
-                }
-                else
-                {
-                    Console.WriteLine(text[i]);
-                }
+            }
+            else
+            {
+                Console.WriteLine(text + " is kein Palindrom");
             }
         }
+
+            static bool isPalindrome(string text) {
+                
+                string reversed = "";
+
+                for (int i = text.Length-1; i >= 0; i--)
+                {
+                    reversed += text[i];
+                
+                }
+
+                return reversed.ToLower() == text.ToLower();
+            }
+        
 
         
 
