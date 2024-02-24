@@ -4,44 +4,32 @@
     {
         static void Main(string[] args)
         {
-            Auto kombi = new Auto();
-            kombi.Hersteller = "Audi";
-            Console.WriteLine(kombi.Hersteller);
-            kombi.Türen = 0;
-            Console.WriteLine(kombi.Türen);
-        
+            Hund hund1 = new Hund(4, "Pluto", "Peter Müller");
+            Console.WriteLine(hund1.Herrchen);
         }
 
     }
 
-    class Auto
+    class Hund
     {
         //Eigenschaften
-        public string Hersteller { get; set; }
+        public int Alter { get; set; }
+        public string Name { get; set; }
+        public string Herrchen { get; set; }
 
-        //klassenintern genutzte variable
-        private int anzahlTüren;
-        public int Türen
-        {
-            //liest klasseninterne variable
-            get
-            {
-                return anzahlTüren;
-            }
-            //überschreibt klasseninterne variable
-            set
-            {
-                //extra implementierte logik
-                if (value < 2)
-                {
-                    anzahlTüren = 2;
-                } 
-                else
-                {
-                    anzahlTüren = value;
-                }
-                
-            }
+        //private int alter
+
+        //Konstruktor
+        public Hund(int alter, string name, string herrchen) {
+
+            //Eigenschaften werden Parameter zugewiesen
+            Alter = alter;
+            Name = name;
+            Herrchen = herrchen;
+            
+            //bei privaten variablen, ignoriert den von aussen kommenden Parameter
+            //this.alter = alter;
+
         }
-    }
+    }    
 }
