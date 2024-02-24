@@ -4,22 +4,44 @@
     {
         static void Main(string[] args)
         {
-            //Instanziierung der variable
-            Bankkonto konto = new Bankkonto();
-            Bankkonto konto2 = new Bankkonto();
-
-            //zugriff auf die eigenschaften und methoden
-            konto.Kontostand = 2500;
-            konto.Besitzer = "Sandra Müller";
-            konto.Auszahlen(250);
-
-            konto2.Kontostand = 3000;
-
-            Console.WriteLine("Kontostand 1: " + konto.Kontostand);
-            Console.WriteLine("Kontostand 2: " + konto2.Kontostand);
-
-
+            Auto kombi = new Auto();
+            kombi.Hersteller = "Audi";
+            Console.WriteLine(kombi.Hersteller);
+            kombi.Türen = 0;
+            Console.WriteLine(kombi.Türen);
+        
         }
 
+    }
+
+    class Auto
+    {
+        //Eigenschaften
+        public string Hersteller { get; set; }
+
+        //klassenintern genutzte variable
+        private int anzahlTüren;
+        public int Türen
+        {
+            //liest klasseninterne variable
+            get
+            {
+                return anzahlTüren;
+            }
+            //überschreibt klasseninterne variable
+            set
+            {
+                //extra implementierte logik
+                if (value < 2)
+                {
+                    anzahlTüren = 2;
+                } 
+                else
+                {
+                    anzahlTüren = value;
+                }
+                
+            }
+        }
     }
 }
