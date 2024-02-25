@@ -8,51 +8,29 @@ namespace Csharp_masterkurs
     {
         static void Main(string[] args)
         {
-            Hund coco = new Hund();
-            coco.Name = "Coco";
-            coco.Alter = 11;
-            coco.Rasse = "Weißer Schäferhund";
-            coco.Fressen();
-            coco.Bellen();
-
-            Wachhund jill = new Wachhund();
-            jill.Name = "Jill";
-            jill.Alter = 9;
-            jill.Rasse = "Mischling";
-            jill.BewacheHaus();
-            jill.Fressen();
-            jill.Bellen();
+            ErbendeKlasse objekt = new ErbendeKlasse("Peter", 33);   
 
         }
 
     }
 
-    class Hund
+    class BasisKlasse
     {
-        //Eigenschaften
         public string Name { get; set; }
-        public int Alter { get; set; }
-        public string Rasse { get; set; }
-
-        //Methoden
-        public void Fressen()
+        public int Age { get; set; }
+        public BasisKlasse(string name, int age)
         {
-            Console.WriteLine("Der Hund " + Name + " frisst gerade!");
-        }
-
-        public void Bellen()
-        {
-            Console.WriteLine("Der Hund " + Name + " bellt gerade!");
+            Name = name;
+            Age = age;
+            Console.WriteLine("BasisKlassen Konstruktor wird ausgeführt!");
         }
     }
 
-    //Klasse erbt von andere Klasse
-    //um von mehreren klassen zu erben interfaces benutzen
-    class Wachhund : Hund
+    class ErbendeKlasse : BasisKlasse
     {
-        public void BewacheHaus()
+        public ErbendeKlasse(string name, int age) : base(name, age)
         {
-            Console.WriteLine("Der Hund " + Name + " bewacht das Haus!");
+            Console.WriteLine("ErbendeKlasse Konstruktor wird ausgeführt!");
         }
     }
 
