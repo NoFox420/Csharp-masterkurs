@@ -4,32 +4,25 @@
     {
         static void Main(string[] args)
         {
-            Hund hund1 = new Hund(4, "Pluto", "Peter Müller");
-            Console.WriteLine(hund1.Herrchen);
+            //eigene statische Klasse
+            double fläche = Mathematik.RechteckFläche(10, 15);
+            Console.WriteLine(fläche);
+
+            //statische Klassen vom .NET-Framwork:
+            double squareRoot = Math.Sqrt(50);
+            Console.WriteLine(squareRoot);
+
         }
 
     }
 
-    class Hund
+    static class Mathematik
     {
-        //Eigenschaften
-        public int Alter { get; set; }
-        public string Name { get; set; }
-        public string Herrchen { get; set; }
-
-        //private int alter
-
-        //Konstruktor
-        public Hund(int alter, string name, string herrchen) {
-
-            //Eigenschaften werden Parameter zugewiesen
-            Alter = alter;
-            Name = name;
-            Herrchen = herrchen;
-            
-            //bei privaten variablen, ignoriert den von aussen kommenden Parameter
-            //this.alter = alter;
-
+        public static double RechteckFläche(double breite, double höhe)
+        {
+            return breite * höhe;
         }
-    }    
+    }
+
+       
 }
