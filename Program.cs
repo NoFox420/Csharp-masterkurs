@@ -1,5 +1,6 @@
 ﻿
 using System;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Csharp_masterkurs
 
@@ -8,33 +9,75 @@ namespace Csharp_masterkurs
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Dreieck: " + AreaCalculator.GetTriangleArea(5, 12));
-            Console.WriteLine("Rechteck: " + AreaCalculator.GetRectangleArea(10, 4));
-            Console.WriteLine("Quadrat: " + AreaCalculator.GetSquareArea(4));
-            Console.WriteLine("Kreis: " + AreaCalculator.GetCircleArea(10));
+            Person[] peopleInClassroom =
+            {
+                new Teacher("John", "Smith", 32),
+                new Student("Sabrina", "Müller", 18),
+                new Student("Anna", "Matt", 17),
+                new Student("Peter", "Fredl", 18),
+                new Student("Matthias", "Maier", 19)
+            };
+
+            foreach (Person p in peopleInClassroom)
+            {
+                p.PrintInformation();
+
+                if (p is Teacher)
+                {
+                    (p as Teacher).Teach();
+                }
+                else if (p is Student) 
+                {
+                    (p as Student).ListenToTeacher();
+                }
+                Console.WriteLine();
+            }
         }
     }
 
-    static class AreaCalculator
+    class Person
     {
-        public static double GetTriangleArea(double triangleBase, double height)
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public int Age { get; set; }
+
+        public Person(string firstName, string lastName, int age) 
         {
-            return (triangleBase * height) / 2;
+            FirstName = firstName;
+            LastName = lastName;
+            Age = age;
         }
 
-        public static double GetRectangleArea(double width, double height)
+        public void PrintInformation()
         {
-            return width * height;
+            Console.WriteLine("Name: {0} {1}", FirstName, LastName);
+            Console.WriteLine("Alter: {0}", Age);
+        }
+    }
+
+    class  Teacher : Person
+    {
+        public Teacher(string firstName, string lastName, int age) : base(firstName, lastName, age) 
+        {
+            
+        }
+        public void Teach()
+        {
+            Console.WriteLine("Herr/Frau {0} unterrichtet die Klasse!", LastName);
         }
 
-        public static double GetSquareArea(double length)
+    }
+
+    class Student : Person
+    {
+        public Student(string firstName, string lastName, int age) : base(firstName, lastName, age)
         {
-            return length * length;
+            
         }
 
-        public static double GetCircleArea(double radius)
+        public void ListenToTeacher()
         {
-            return radius * radius * Math.PI;
+            Console.WriteLine("Der/Die Schüler/in {0} {1} hört dem Lehrer zu!", FirstName, LastName);
         }
     }
 }
