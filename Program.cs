@@ -8,48 +8,33 @@ namespace Csharp_masterkurs
     {
         static void Main(string[] args)
         {
-            Hund coco = new Hund("Coco", 12, "weißer Schäferhund", "Männlich");
-
-            Console.WriteLine(coco.Name);
-            Console.WriteLine(coco.Age);
-            coco.Bellen();
-            coco.Fressen();
+            Console.WriteLine("Dreieck: " + AreaCalculator.GetTriangleArea(5, 12));
+            Console.WriteLine("Rechteck: " + AreaCalculator.GetRectangleArea(10, 4));
+            Console.WriteLine("Quadrat: " + AreaCalculator.GetSquareArea(4));
+            Console.WriteLine("Kreis: " + AreaCalculator.GetCircleArea(10));
         }
     }
 
-    class Hund
+    static class AreaCalculator
     {
-        public string Name { get; set; }
-        public int Age { get; set; }
-        public string Rasse { get; set; }
-        public string Geschlecht { get; set; }
-
-        public Hund(string name, int age, string rasse, string geschlecht)
+        public static double GetTriangleArea(double triangleBase, double height)
         {
-            Name = name;
-            Age = age;
-            Rasse = rasse;
-            Geschlecht = geschlecht;
+            return (triangleBase * height) / 2;
         }
 
-        public void Bellen()
+        public static double GetRectangleArea(double width, double height)
         {
-            Console.WriteLine(Name + " bellt!");
+            return width * height;
         }
 
-        public void Fressen()
+        public static double GetSquareArea(double length)
         {
-            Console.WriteLine(Name + " frisst!");
+            return length * length;
+        }
+
+        public static double GetCircleArea(double radius)
+        {
+            return radius * radius * Math.PI;
         }
     }
-
-    //class ErbendeKlasse : BasisKlasse
-    //{
-    //    public ErbendeKlasse(string name, int age) : base(name, age)
-    //    {
-    //        Console.WriteLine("ErbendeKlasse Konstruktor wird ausgeführt!");
-    //    }
-    //}
-
-
 }
