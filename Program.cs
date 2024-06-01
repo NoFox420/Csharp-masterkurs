@@ -8,31 +8,48 @@ namespace Csharp_masterkurs
     {
         static void Main(string[] args)
         {
-            ErbendeKlasse objekt = new ErbendeKlasse("Peter", 33);   
+            Hund coco = new Hund("Coco", 12, "weißer Schäferhund", "Männlich");
 
+            Console.WriteLine(coco.Name);
+            Console.WriteLine(coco.Age);
+            coco.Bellen();
+            coco.Fressen();
         }
-
     }
 
-    class BasisKlasse
+    class Hund
     {
         public string Name { get; set; }
         public int Age { get; set; }
-        public BasisKlasse(string name, int age)
+        public string Rasse { get; set; }
+        public string Geschlecht { get; set; }
+
+        public Hund(string name, int age, string rasse, string geschlecht)
         {
             Name = name;
             Age = age;
-            Console.WriteLine("BasisKlassen Konstruktor wird ausgeführt!");
+            Rasse = rasse;
+            Geschlecht = geschlecht;
+        }
+
+        public void Bellen()
+        {
+            Console.WriteLine(Name + " bellt!");
+        }
+
+        public void Fressen()
+        {
+            Console.WriteLine(Name + " frisst!");
         }
     }
 
-    class ErbendeKlasse : BasisKlasse
-    {
-        public ErbendeKlasse(string name, int age) : base(name, age)
-        {
-            Console.WriteLine("ErbendeKlasse Konstruktor wird ausgeführt!");
-        }
-    }
+    //class ErbendeKlasse : BasisKlasse
+    //{
+    //    public ErbendeKlasse(string name, int age) : base(name, age)
+    //    {
+    //        Console.WriteLine("ErbendeKlasse Konstruktor wird ausgeführt!");
+    //    }
+    //}
 
 
 }
