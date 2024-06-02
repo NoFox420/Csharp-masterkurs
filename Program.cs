@@ -9,32 +9,31 @@ namespace Csharp_masterkurs
     {
         static void Main(string[] args)
         {
-            Auto suv = new Auto();
-            suv.Hersteller = "Audi";
-            suv.MaxGeschwindigkeit = 180;
+            Hund hund = new Hund();
+            hund.alter = 6;
+            hund.geschlecht = "männlich";
 
-            EAuto limousine = new EAuto();
-            limousine.Hersteller = "Tesla";
-            limousine.MaxGeschwindigkeit = 140;
+            Katze katze = new Katze();
+            katze.alter = 4;
+            katze.geschlecht = "weiblich";
 
-            Motorrad sport = new Motorrad();
-            sport.Hersteller = "Suzuki";
-            sport.MaxGeschwindigkeit = 250;
+            Maus maus = new Maus();
+            maus.alter = 5;
+            maus.geschlecht = "weiblich";
 
-            IKraftfahrzeug[] fahrzeuge = new IKraftfahrzeug[3];
-            fahrzeuge[0] = suv;
-            fahrzeuge[1] = limousine;
-            fahrzeuge[2] = sport;
+            ITier[] tiere = new ITier[3];
+            tiere[0] = hund;
+            tiere[1] = katze;
+            tiere[2] = maus;
 
-            foreach (IKraftfahrzeug fahrzeug in fahrzeuge)
+            foreach (ITier tier in tiere) 
             {
-                Console.WriteLine(fahrzeug.Hersteller);
-                Console.WriteLine(fahrzeug.MaxGeschwindigkeit);
-                fahrzeug.Fahren();
-                fahrzeug.Bremsen();
+                Console.WriteLine(tier.alter);
+                Console.WriteLine(tier.geschlecht);
+                tier.Fressen();
+                tier.Trinken();
                 Console.WriteLine();
             }
-            
         }
     }
 }
