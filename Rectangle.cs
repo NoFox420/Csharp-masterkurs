@@ -21,5 +21,9 @@ namespace Csharp_masterkurs
             Height = height;
             Width = width;
         }
+        public override string ToString()
+        {
+            return "Rechteck mit einer Höhe von " + Height + " und einer Breite von " + Width + ".";
+        }
     }
 }

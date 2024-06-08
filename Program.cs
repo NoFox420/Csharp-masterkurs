@@ -16,7 +16,12 @@ namespace Csharp_masterkurs
             kreis.GetArea();
 
             Console.WriteLine(rechteck.GetArea());
+            Console.WriteLine(rechteck.ToString());
+
+            Console.WriteLine();
+
             Console.WriteLine(kreis.GetArea());
+            Console.WriteLine(kreis.ToString());
         }
     }
 }

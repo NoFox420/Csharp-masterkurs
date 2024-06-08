@@ -18,5 +18,10 @@ namespace Csharp_masterkurs
         {
             Radius = radius;
         }
+
+        public override string ToString()
+        {
+            return "Kreis mit dem Radius von " + Radius + ".";
+        }
     }
 }
