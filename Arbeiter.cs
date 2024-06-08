@@ -23,7 +23,11 @@ namespace Csharp_masterkurs
             Console.WriteLine("Gehalt: " + Gehalt);
         }
 
-        public abstract void ArbeitVerrichten();
+        //Virtuelle Methoden können überschrieben werden und dienen als default
+        public virtual void ArbeitVerrichten()
+        {
+            Console.WriteLine("Der Arbeiter verrichtet seine Arbeit!");
+        }
         
     }
 }
