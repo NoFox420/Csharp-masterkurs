@@ -9,9 +9,13 @@ namespace Csharp_masterkurs
     {
         static void Main(string[] args)
         {
-            Person person = new Person();
-            person.Name = "Gustav";
-            Console.WriteLine(person.Name);
+            Mechatroniker jens = new Mechatroniker("Jens", 2500);
+            jens.PrintInformation();
+            jens.ArbeitVerrichten();
+
+            Handwerker christian = new Handwerker("Christian", 2000);
+            christian.PrintInformation();
+            christian.ArbeitVerrichten();
         }
     }
 }
