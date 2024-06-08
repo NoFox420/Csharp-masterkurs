@@ -9,19 +9,14 @@ namespace Csharp_masterkurs
     {
         static void Main(string[] args)
         {
-            Mechatroniker jens = new Mechatroniker("Jens", 2500);
-            jens.PrintInformation();
-            jens.ArbeitVerrichten();
+            Rectangle rechteck = new Rectangle(10, 20);
+            rechteck.GetArea();
 
-            Console.WriteLine();
+            Circle kreis = new Circle(3);
+            kreis.GetArea();
 
-            Handwerker christian = new Handwerker("Christian", 2000);
-            christian.PrintInformation();
-            christian.ArbeitVerrichten();
-
-            Arbeiter[] arbeiters = new Arbeiter[2];
-            arbeiters[0] = jens;
-            arbeiters[1] = christian;
+            Console.WriteLine(rechteck.GetArea());
+            Console.WriteLine(kreis.GetArea());
         }
     }
 }
