@@ -7,26 +7,49 @@ using System.Collections.Generic;
 namespace Csharp_masterkurs
 
 {
-    public delegate void AusgabeDelegate(string str);
     internal class Program
     {
         static void Main(string[] args)
         {
-            AusgabeDelegate ausgabe = new AusgabeDelegate(SayHello);
+            //List erstellen und Methode einbinden
+            BetterList<string> names = new BetterList<string>();
+            names.Added += OnAdded;
 
-            ausgabe += SayGoodbye;
+            names.Add("Sabrina");
+            names.Add("Alina");
+            names.Add("Peter");
+            names.Add("Uwe");
 
-            ausgabe("Peter");
+
         }
 
-        static void SayHello(string name)
+        static void OnAdded()
         {
-            Console.WriteLine(name + " sagt hallo!");
+            Console.WriteLine("Ein Objekt wurde zur List hinzugefügt...");
+        }
+    }
+
+    //Delegaten instanziieren für Event
+    delegate void AddedEventHandler();
+
+    //Generische List mit Platzhalter für Datentypen definieren
+    class BetterList<T> : List<T>
+    {
+        //Add Methode der List Klasse wird erweitert mit einem Event
+        public new void Add(T item)
+        {
+            //Eigentliche Funktionalität der Methode wird hinzugefügt
+            base.Add(item);
+
+            //Prüfen ob methoden dieses event abonniert haben
+            if (Added != null) 
+            {
+                //Event wird aufgerufen
+                Added();
+            }
         }
 
-        static void SayGoodbye(string name)
-        {
-            Console.WriteLine(name + " verabschiedet sich!");
-        }
+        //Event erstellen der delegate nutzt
+        public event AddedEventHandler Added;
     }
 }
