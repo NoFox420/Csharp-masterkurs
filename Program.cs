@@ -23,8 +23,11 @@ namespace Csharp_masterkurs
                 "Peter"
             };
 
-            List<string> newList = ReturnNewList(namen, StartsWithH);
+            //Neue, gefilterte Liste wird erstellt, nimmt originale Liste und Filtermethode an
+            //Anonyme Filtermethode wird in der Parameterliste erstellt und der Delegate übergeben
+            List<string> newList = ReturnNewList(namen, delegate (string name) { return name[0] == 'H'; });
 
+            //gefilterte Liste wird ausgegeben
             foreach (string name in newList)
             {
                 Console.WriteLine(name);
@@ -47,12 +50,6 @@ namespace Csharp_masterkurs
                 }
             }
             return newList;
-        }
-
-        //Filtermethoden die boolean returned
-        static bool StartsWithH(string str) 
-        {
-            return (str[0] == 'H' || str[0] == 'h');
         }
     }
 }
