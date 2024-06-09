@@ -25,7 +25,7 @@ namespace Csharp_masterkurs
 
             //Neue, gefilterte Liste wird erstellt, nimmt originale Liste und Filtermethode an
             //Anonyme Filtermethode wird in der Parameterliste erstellt und der Delegate übergeben
-            List<string> newList = ReturnNewList(namen, delegate (string name) { return name[0] == 'H'; });
+            List<string> newList = ReturnNewList(namen, (name) => { return name[0] == 'H'; });
 
             //gefilterte Liste wird ausgegeben
             foreach (string name in newList)
