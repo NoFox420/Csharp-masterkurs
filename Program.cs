@@ -11,27 +11,24 @@ namespace Csharp_masterkurs
     {
         static void Main(string[] args)
         {
-            Wertebehälter<string> behälter = new Wertebehälter<string>("Janek");
-            behälter.WertAusgabe();
+            List<string> namensListe = new List<string>();
 
-            Wertebehälter<int> behälter2 = new Wertebehälter<int>(3);
-            behälter2.WertAusgabe();
+            AddMultiple<string>(namensListe, 5, "Sabine");
 
+            foreach (string names in namensListe)
+            {
+                Console.WriteLine(names);
+            }
         }
-    }
 
-    class Wertebehälter<T>
-    {
-        public T MeinWert { get; set; }
-
-        public Wertebehälter(T wert)
+        static void AddMultiple<T>(List<T> list, int amount, T value)
         {
-            MeinWert = wert;
+            for (int i = 0; i < amount; i++)
+            {
+                list.Add(value);
+            }
+
         }
 
-        public void WertAusgabe()
-        {
-            Console.WriteLine(MeinWert.ToString());
-        }
     }
 }
