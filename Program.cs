@@ -11,31 +11,27 @@ namespace Csharp_masterkurs
     {
         static void Main(string[] args)
         {
-            List<string> names = new List<string>();
+            Wertebehälter<string> behälter = new Wertebehälter<string>("Janek");
+            behälter.WertAusgabe();
 
-            names.Add("Peter");
-            names.Add("Alina");
-            names.Add("Sabine");
-            names.Add("Florian");
+            Wertebehälter<int> behälter2 = new Wertebehälter<int>(3);
+            behälter2.WertAusgabe();
 
-            Console.WriteLine("Unsortiert!");
-            Console.WriteLine("--------------------");
-            foreach (string name in names) 
-            {
-                Console.WriteLine(name);
-            }
+        }
+    }
 
-            Console.WriteLine();
+    class Wertebehälter<T>
+    {
+        public T MeinWert { get; set; }
 
-            names.Sort();
+        public Wertebehälter(T wert)
+        {
+            MeinWert = wert;
+        }
 
-            Console.WriteLine("Sortiert");
-            Console.WriteLine("--------------------");
-            foreach (string name in names) 
-            {
-                Console.WriteLine(name);
-            }
-
-        }     
-    }      
+        public void WertAusgabe()
+        {
+            Console.WriteLine(MeinWert.ToString());
+        }
+    }
 }
