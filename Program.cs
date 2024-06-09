@@ -7,49 +7,26 @@ using System.Collections.Generic;
 namespace Csharp_masterkurs
 
 {
-    //Delegate nimmt string als Parameter an und returned einen boolean
-    public delegate bool FilterDelegate(string str);
+    public delegate void AusgabeDelegate(string str);
     internal class Program
     {
         static void Main(string[] args)
         {
-            List<string> namen = new List<string>()
-            {
-                "Horst",
-                "Alina",
-                "Hendrik",
-                "Kai",
-                "Janek",
-                "Peter"
-            };
+            AusgabeDelegate ausgabe = new AusgabeDelegate(SayHello);
 
-            //Neue, gefilterte Liste wird erstellt, nimmt originale Liste und Filtermethode an
-            //Anonyme Filtermethode wird in der Parameterliste erstellt und der Delegate übergeben
-            List<string> newList = ReturnNewList(namen, (name) => { return name[0] == 'H'; });
+            ausgabe += SayGoodbye;
 
-            //gefilterte Liste wird ausgegeben
-            foreach (string name in newList)
-            {
-                Console.WriteLine(name);
-            }
+            ausgabe("Peter");
         }
 
-        //Methode nimmt ungefilterte Liste an
-        static List<string> ReturnNewList(List<string> original, FilterDelegate filterMethod)
+        static void SayHello(string name)
         {
-            //neue Liste wird erstellt
-            List <string> newList = new List<string>();
+            Console.WriteLine(name + " sagt hallo!");
+        }
 
-            //durchlaufen die originale Liste
-            foreach (string str in original)
-            {
-                //string wird der Delegate übergeben
-                if(filterMethod(str) == true) 
-                { 
-                    newList.Add(str);
-                }
-            }
-            return newList;
+        static void SayGoodbye(string name)
+        {
+            Console.WriteLine(name + " verabschiedet sich!");
         }
     }
 }
