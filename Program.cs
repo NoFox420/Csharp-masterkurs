@@ -12,32 +12,18 @@ namespace Csharp_masterkurs
     {
         static void Main(string[] args)
         {
-            //Objektinstanz von Ordner erstellen
-            string path = @"C:\\Users\\janfr\\OneDrive\\Desktop\\TestOrdner";
-            DirectoryInfo verzeichnis = new DirectoryInfo(path);
+            //Objekt erstellen
+            string pfad = @"C:\Users\janfr\OneDrive\Desktop\TestOrdner\TestDatei.txt";
+            StreamReader sr = new StreamReader(pfad);
 
-            //Array aus Verzeichnissen vom path erstellen
-            DirectoryInfo[] verzeichnisse = verzeichnis.GetDirectories();
+            //öffnet einen Stream und liest datei bis zum ende
+            Console.WriteLine(sr.ReadToEnd());
 
-            foreach (DirectoryInfo dir in verzeichnisse)
-            {
-                Console.WriteLine(dir.Name);
-            }
+            Console.WriteLine(sr.ReadLine());
 
-            //Array aus Dateien vom path erstellen
-            FileInfo[] dateien = verzeichnis.GetFiles();
+            //stream schließen
+            sr.Close();
 
-            foreach (FileInfo datei in dateien) 
-            {
-                Console.WriteLine(datei.Name);
-            }
-
-            //Neuen Ordner erstellen
-            string pfad = @"C:\\Users\\janfr\\OneDrive\\Desktop\\CREATEFOLDER";
-
-            DirectoryInfo zweitesVerzeichnis = new DirectoryInfo(pfad);
-
-            zweitesVerzeichnis.Delete(true);
         }
     }
 }
