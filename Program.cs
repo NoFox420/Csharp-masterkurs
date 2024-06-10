@@ -11,49 +11,21 @@ namespace Csharp_masterkurs
     {
         static void Main(string[] args)
         {
-            while (true)
+            string[] städteListe = new string[4];
+
+            städteListe[0] = "Berlin";
+            städteListe[1] = "Ingolstadt";
+            städteListe[2] = "Düsseldorf";
+            städteListe[3] = "Duisburg";
+
+            Random rnd = new Random();
+
+            for (int i = 0; i < 5; i++)
             {
-                int alter = 0;
-                try
-                {
-                    Console.Write("Gebe dein Alter ein: ");
-                    alter = Convert.ToInt32(Console.ReadLine());
-                }
-                catch (FormatException ex)
-                {
-                    Console.WriteLine(ex.Message);
-                    Console.WriteLine("Du musst eine gültige Zahl eingeben!");
-                    Console.ReadKey();
-                    Console.Clear();
-                    continue;
-                }
-                catch (OverflowException ex)
-                {
-                    Console.WriteLine(ex.Message);
-                    Console.WriteLine("Gebe ein normales Alter ein!");
-                    Console.ReadKey();
-                    Console.Clear();
-                    continue;
-                }
-                catch (Exception ex) 
-                {
-                    Console.WriteLine(ex.Message);
-                    Console.ReadKey();
-                    Console.Clear();
-                    continue;
-                }
 
-                if (alter >= 18)
-                {
-                    Console.WriteLine("Du bist volljährig!");
-                }
-                else
-                {
-                    Console.WriteLine("Du bist minderjährig!");
-                }
+                int index = rnd.Next(0, städteListe.Length);
 
-                Console.ReadKey();
-                Console.Clear();
+                Console.WriteLine(städteListe[index]);
             }
         }
     }
