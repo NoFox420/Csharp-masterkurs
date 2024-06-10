@@ -3,6 +3,7 @@ using System;
 using System.Security.Cryptography.X509Certificates;
 using System.Diagnostics;
 using System.Collections.Generic;
+using System.IO;
 
 namespace Csharp_masterkurs
 
@@ -11,22 +12,32 @@ namespace Csharp_masterkurs
     {
         static void Main(string[] args)
         {
-            string[] städteListe = new string[4];
+            //Objektinstanz von Ordner erstellen
+            string path = @"C:\\Users\\janfr\\OneDrive\\Desktop\\TestOrdner";
+            DirectoryInfo verzeichnis = new DirectoryInfo(path);
 
-            städteListe[0] = "Berlin";
-            städteListe[1] = "Ingolstadt";
-            städteListe[2] = "Düsseldorf";
-            städteListe[3] = "Duisburg";
+            //Array aus Verzeichnissen vom path erstellen
+            DirectoryInfo[] verzeichnisse = verzeichnis.GetDirectories();
 
-            Random rnd = new Random();
-
-            for (int i = 0; i < 5; i++)
+            foreach (DirectoryInfo dir in verzeichnisse)
             {
-
-                int index = rnd.Next(0, städteListe.Length);
-
-                Console.WriteLine(städteListe[index]);
+                Console.WriteLine(dir.Name);
             }
+
+            //Array aus Dateien vom path erstellen
+            FileInfo[] dateien = verzeichnis.GetFiles();
+
+            foreach (FileInfo datei in dateien) 
+            {
+                Console.WriteLine(datei.Name);
+            }
+
+            //Neuen Ordner erstellen
+            string pfad = @"C:\\Users\\janfr\\OneDrive\\Desktop\\CREATEFOLDER";
+
+            DirectoryInfo zweitesVerzeichnis = new DirectoryInfo(pfad);
+
+            zweitesVerzeichnis.Delete(true);
         }
     }
 }
